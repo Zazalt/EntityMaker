@@ -1,0 +1,41 @@
+{
+    "name": "zazalt/entitymaker",
+    "description": "EntityMaker",
+    "homepage": "https://github.com/Zazalt/EntityMaker",
+    "keywords": [
+        "string"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Zazalt",
+            "email": "example@example.com",
+            "homepage": "https://github.com/Zazalt/EntityMaker"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "zazalt/databaser": "dev-master",
+        "zazalt/strink": "dev-master",
+        "zazalt/system": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zazalt\\EntityMaker\\": "src/"
+        }
+    },
+    "extra": {
+        "zazalt": {
+            "language": "php",
+            "title": "EntityMaker",
+            "description": [
+                ""
+            ],
+            "github": "Zazalt",
+            "repository": "EntityMaker",
+            "version": "beta",
+            "generateUsage": false,
+            "examples": true
+        }
+    }
+}
