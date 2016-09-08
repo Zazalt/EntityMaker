@@ -9,7 +9,7 @@
          processIsolation="false"
          syntaxCheck="true"
          stopOnFailure="false"
-         bootstrap="tests/bootstrap.php"
+         bootstrap="tests/ZazaltBootstrap.php"
         >
     <testsuites>
         <testsuite name="EntityMaker Tests">
