@@ -15,6 +15,11 @@ class EntityMaker extends \Zazalt\Databaser\Databaser
         $this->System = new \Zazalt\System\System();
     }
 
+    public function init()
+    {
+        return new static();
+    }
+
     public function setNamespace($namespace)
     {
         $this->namespace = $namespace;
