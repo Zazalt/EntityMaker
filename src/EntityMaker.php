@@ -87,7 +87,11 @@ class EntityMaker extends \Zazalt\Databaser\Databaser
         $members = '';
         $methods = '';
         $index = 0;
+
+        $members = '';
+
         foreach($entity as $entityName => $rows) {
+
             foreach($rows as $rowName => $row) {
                 $members .= ($index > 0 ? "\n" : null);
                 $members .= "\n\t/**";
@@ -103,7 +107,18 @@ class EntityMaker extends \Zazalt\Databaser\Databaser
             }
 
             foreach($rows as $rowName => $row) {
-                $rowNameCamelCase       = \Zazalt\Strink\Strink::turn($rowName)->snakeCaseToCamelCase(false);
+                if($row['primaryKey']) {
+
+                    $rows = array_merge([
+                        '_primaryKey' => array_merge(['_primaryKey' => $rowName], $row)
+                    ], $rows);
+                }
+            }
+
+            print_r($rows);die;
+
+            foreach($rows as $rowName => $row) {
+                //$rowNameCamelCase       = \Zazalt\Strink\Strink::turn((in_array('_primaryKey', $row))$rowName)->snakeCaseToCamelCase(false);
                 $rowNameUcfCamelCase    = \Zazalt\Strink\Strink::turn($rowName)->snakeCaseToCamelCase(true);
 
                 $methods .= "\n\n\tpublic function set". $rowNameUcfCamelCase ."(\${$rowNameCamelCase})\n\t{\n\t\t\$this->{$rowNameCamelCase} = \${$rowNameCamelCase};\n\t\treturn \$this;\n\t}";

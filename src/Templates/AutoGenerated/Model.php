@@ -24,4 +24,9 @@ class ___CLASS___ ##extends##
     ##members##
 
     ##methods##
+
+    public function save()
+    {
+        
+    }
 }
