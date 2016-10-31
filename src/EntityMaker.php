@@ -115,14 +115,14 @@ class EntityMaker extends \Zazalt\Databaser\Databaser
                 }
             }
 
-            print_r($rows);die;
+            //print_r($rows);die;
 
             foreach($rows as $rowName => $row) {
                 //$rowNameCamelCase       = \Zazalt\Strink\Strink::turn((in_array('_primaryKey', $row))$rowName)->snakeCaseToCamelCase(false);
                 $rowNameUcfCamelCase    = \Zazalt\Strink\Strink::turn($rowName)->snakeCaseToCamelCase(true);
 
-                $methods .= "\n\n\tpublic function set". $rowNameUcfCamelCase ."(\${$rowNameCamelCase})\n\t{\n\t\t\$this->{$rowNameCamelCase} = \${$rowNameCamelCase};\n\t\treturn \$this;\n\t}";
-                $methods .= "\n\n\tpublic function get". $rowNameUcfCamelCase ."()\n\t{\n\t\treturn \$this->{$rowNameCamelCase};\n\t}";
+                $methods .= "\n\n\tpublic function set". $rowNameUcfCamelCase ."(\${$rowNameUcfCamelCase})\n\t{\n\t\t\$this->{$rowNameUcfCamelCase} = \${$rowNameUcfCamelCase};\n\t\treturn \$this;\n\t}";
+                $methods .= "\n\n\tpublic function get". $rowNameUcfCamelCase ."()\n\t{\n\t\treturn \$this->{$rowNameUcfCamelCase};\n\t}";
             }
         }
 
