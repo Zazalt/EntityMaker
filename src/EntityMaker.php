@@ -109,14 +109,15 @@ class EntityMaker extends \Zazalt\Databaser\Databaser
                 ++$index;
             }
 
+            /*
             foreach($rows as $rowName => $row) {
                 if($row['primaryKey']) {
-
                     $rows = array_merge([
                         'primaryKey' => array_merge(['primaryKey' => $rowName], $row)
                     ], $rows);
                 }
             }
+            */
 
             //print_r($rows);die;
 
