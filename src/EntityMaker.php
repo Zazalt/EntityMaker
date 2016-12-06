@@ -15,24 +15,36 @@ class EntityMaker extends \Zazalt\Databaser\Databaser
         $this->System = new \Zazalt\System\System();
     }
 
+    /**
+     * @return $this
+     */
     public function setNamespace($namespace)
     {
         $this->namespace = $namespace;
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function setExtends($extends)
     {
         $this->extends = $extends;
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function setConstructInject($parameters)
     {
         $this->constructInject = $parameters;
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function exportTo($exportTo)
     {
         $this->exportTo = $exportTo;
@@ -125,7 +137,8 @@ class EntityMaker extends \Zazalt\Databaser\Databaser
                 $rowNameUcfCamelCase    = \Zazalt\Strink\Strink::turn($rowName)->snakeCaseToCamelCase(true);
                 $rowNameCamelCase       = \Zazalt\Strink\Strink::turn($rowName)->snakeCaseToCamelCase();
 
-                $methods .= "\n\n\tpublic function set". $rowNameUcfCamelCase ."(\${$rowNameCamelCase})\n\t{\n\t\t\$this->{$rowNameCamelCase} = \${$rowNameCamelCase};\n\t\treturn \$this;\n\t}";
+                $methods .= "\n\n\t/**\n\t * @return {$modelNameCamelCase}\n\t */";
+                $methods .= "\n\tpublic function set". $rowNameUcfCamelCase ."(\${$rowNameCamelCase})\n\t{\n\t\t\$this->{$rowNameCamelCase} = \${$rowNameCamelCase};\n\t\treturn \$this;\n\t}";
                 $methods .= "\n\n\tpublic function get". $rowNameUcfCamelCase ."()\n\t{\n\t\treturn \$this->{$rowNameCamelCase};\n\t}";
             }
         }
