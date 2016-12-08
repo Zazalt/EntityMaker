@@ -15,6 +15,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
+        "zazalt/omen": "dev-master",
         "zazalt/databaser": "dev-master",
         "zazalt/strink": "dev-master",
         "zazalt/system": "dev-master"
