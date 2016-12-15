@@ -6,12 +6,15 @@ class ___CLASS___ ##extends##
 {
     ##construct##
 
+    /**
+     * @param array $content - the array before INSERT query is executed
+     * @param array $result - the array AFTER the insert query is executed
+     * @return array
+     */
     public function afterInsert($content, $result)
     {
-        return [
-            'content' => $content,
-            'result' => $result
-        ];
+        // Can compare $content['?'] with $result['?']
+        return $result;
     }
 
     /**
