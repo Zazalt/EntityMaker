@@ -174,7 +174,7 @@ class EntityMaker extends \Zazalt\Databaser\Databaser
                 $members .= "\n\t* @default\t\t{$row['default']}";
                 $members .= "\n\t*/";
                 $members .= "\n\t";
-                $members .= 'private $'. \Zazalt\Strink\Strink::turn($rowName)->snakeCaseToCamelCase(false) .';';
+                $members .= 'protected $'. \Zazalt\Strink\Strink::turn($rowName)->snakeCaseToCamelCase(false) .';';
                 ++$index;
             }
 
