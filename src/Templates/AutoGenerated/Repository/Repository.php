@@ -2,6 +2,8 @@
 
 namespace ___NAMESPACE___;
 
+use Zazalt\Strink\Strink;
+
 class ___CLASS___ ##extends##
 {
     ##construct##
@@ -45,6 +47,22 @@ class ___CLASS___ ##extends##
     public function __TODO__delete()
     {
         #delete()#
+    }
+
+    ####################################################################################################################
+
+    protected function populateFromArray(array $params)
+    {
+        if(count($params) > 0) {
+            foreach ($params as $rawName => $value) {
+                if(property_exists($this, $rawName)) {
+                    $setter = 'set' . Strink::turn($rawName)->snakeCaseToCamelCase(true);
+                    $this->$setter($value);
+                }
+            }
+        }
+
+        return $this;
     }
 
     ####################################################################################################################

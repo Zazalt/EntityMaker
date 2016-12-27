@@ -134,7 +134,7 @@ class EntityMaker extends \Zazalt\Databaser\Databaser
             }
             $create .= "\n\t\t];";
         }
-        $create .= "\n\t\treturn \$this->inset(\$params, ['". implode("','", $createToReturn) ."']);";
+        $create .= "\n\t\treturn \$this->populateFromArray(\$this->insert(\$params, ['". implode("','", $createToReturn) ."']));";
         $fileTemplateContent = str_replace('#create()#', $create, $fileTemplateContent);
 
         // Final
