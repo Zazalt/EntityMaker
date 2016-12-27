@@ -17,6 +17,7 @@ Requirements
 
 Packagist Dependencies
 ---------------
+* [zazalt/omen](https://github.com/zazalt/omen)
 * [zazalt/databaser](https://github.com/zazalt/databaser)
 * [zazalt/strink](https://github.com/zazalt/strink)
 * [zazalt/system](https://github.com/zazalt/system)
@@ -30,4 +31,19 @@ With composer:
 		"zazalt/entitymaker": "dev-master"
 	}
 }
+```
+
+## Usage
+```php
+$EntityMaker = new Zazalt\EntityMaker\EntityMaker();
+$EntityMaker
+    ->setEngine(Zazalt\Omen\Omen::ENGINE_POSTGRESQL)    // 'postgresql'
+    ->setUsername('your_username')                      // If not set, default is 127.0.0.1
+    ->setPassword('your_password')                      // If not set, default is 5432 (PostgreSQL default port)
+    ->setDatabase('your_database_name')
+    ->setNamespace('Entity')
+    ->setExtends('\YourNamespace\YouClass')
+    //->setConstructInject('$config')
+    ->exportTo(dirname(__FILE__) . '/Entity')
+    ->run();
 ```
