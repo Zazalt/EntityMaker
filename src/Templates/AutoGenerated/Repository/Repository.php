@@ -65,6 +65,14 @@ class ___CLASS___ ##extends##
         return $this;
     }
 
+    /**
+     * @return array
+     */
+    public function toArray()
+    {
+        #toArray()#
+    }
+
     ####################################################################################################################
 
     public function getOne($what = '*', $where = [], $orderBy = [], $limitOffset = [])
