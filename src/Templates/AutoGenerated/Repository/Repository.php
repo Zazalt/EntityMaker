@@ -77,12 +77,12 @@ class ___CLASS___ ##extends##
 
     public function getOne($what = '*', $where = [], $orderBy = [], $limitOffset = [])
     {
-        return parent::getOne($what = '*', $where = [], $orderBy = [], $limitOffset = []);
+        return parent::getOne($what, $where, $orderBy, $limitOffset);
     }
 
     public function getAll($what = '*', $where = [], $orderBy = [], $limitOffset = [])
     {
-        return parent::getOne($what = '*', $where = [], $orderBy = [], $limitOffset = []);
+        return parent::getAll($what, $where, $orderBy, $limitOffset);
     }
 
     /**
