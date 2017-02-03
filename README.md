@@ -37,17 +37,6 @@ With composer:
 ```php
 $EntityMaker = new Zazalt\EntityMaker\EntityMaker();
 $EntityMaker
-<<<<<<< HEAD
-    ->setEngine(Zazalt\Databaser\Databaser::ENGINE_POSTGRESQL)
-    //->setHost('127.0.0.1')                        // If not set, default is 127.0.0.1
-    //->setPort()                                   // If not set, default is 5432 (PostgreSQL default port)
-    ->setUsername('your_username')
-    ->setPassword('your_password')
-    ->setDatabase('your_database_name')
-    ->setNamespace('Entities')
-    ->setExtends('\YourNamespace\YouClass')         // Optional
-    ->exportTo(dirname(__FILE__).'/Entities')
-=======
     ->setEngine(Zazalt\Omen\Omen::ENGINE_POSTGRESQL)    // 'postgresql'
     ->setUsername('your_username')                      // If not set, default is 127.0.0.1
     ->setPassword('your_password')                      // If not set, default is 5432 (PostgreSQL default port)
@@ -56,6 +45,5 @@ $EntityMaker
     ->setExtends('\YourNamespace\YouClass')
     //->setConstructInject('$config')
     ->exportTo(dirname(__FILE__) . '/Entity')
->>>>>>> 6e9990a30904a64ac628d7d8bc80ab67fcf0ea7c
     ->run();
 ```
