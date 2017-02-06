@@ -138,6 +138,39 @@ class EntityMaker extends \Zazalt\Databaser\Databaser
         $fileTemplateContent = str_replace('#create()#', $create, $fileTemplateContent);
 
         /**
+         * update()   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+         */
+        $update = '';
+        $updateToReturn = [];
+        foreach($entity as $entityName => $rows) {
+            $update .= "\$params = [";
+            foreach ($rows as $rowName => $row) {
+                $rowNameUcfCamelCase    = \Zazalt\Strink\Strink::turn($rowName)->snakeCaseToCamelCase(true);
+
+                if(!boolval($row['primaryKey'])) {
+                    $updateToReturn[] = $rowName;
+                    $update .= "\n\t\t\t'{$rowName}' => \$this->get{$rowNameUcfCamelCase}(),";
+                } else {
+                    $updateToReturn[] = $rowName;
+                }
+            }
+            $update .= "\n\t\t];";
+        }
+        $update .= "\n\t\treturn \$this->populateFromArray(\$this->updateRaw(\$params, ['id', '=', \$this->getId()]));";
+        $fileTemplateContent = str_replace('#update()#', $update, $fileTemplateContent);
+
+
+        /*
+        $params = [
+            'name' => $this->getName(),
+        ];
+
+        return $this->updateRaw($params, [
+            ['id', '=', $this->getId()]
+        ]);
+         */
+
+        /**
          * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
          */
 

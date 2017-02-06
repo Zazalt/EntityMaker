@@ -36,7 +36,7 @@ class ___CLASS___ ##extends##
     /**
      * Update
      */
-    public function __TODO__update()
+    public function update()
     {
         #update()#
     }
