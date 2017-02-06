@@ -156,9 +156,9 @@ class EntityMaker extends \Zazalt\Databaser\Databaser
             }
             $update .= "\n\t\t];";
         }
-        $update .= "\n\t\treturn \$this->populateFromArray(\$this->updateRaw(\$params, ['id', '=', \$this->getId()]));";
+        $update .= "\n\t\tif(\$this->updateRaw(\$params, [['id', '=', \$this->getId()]])) {}";
+        $update .= "\n\t\treturn \$this->populateFromArray(\$params);";
         $fileTemplateContent = str_replace('#update()#', $update, $fileTemplateContent);
-
 
         /*
         $params = [
