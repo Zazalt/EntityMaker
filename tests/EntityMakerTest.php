@@ -2,13 +2,15 @@
 
 namespace Zazalt\EntityMaker\Tests;
 
+use Zazalt\EntityMaker\EntityMaker;
+
 class EntityMakerTest extends \Zazalt\EntityMaker\Tests\ZazaltTest
 {
     protected $that;
 
     public function __construct()
     {
-        parent::loader($this);
+        parent::loader(EntityMaker::class);
     }
 
     public function testFake()

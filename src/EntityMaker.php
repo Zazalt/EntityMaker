@@ -67,7 +67,7 @@ class EntityMaker extends \Zazalt\Databaser\Databaser
     /**
      * Will create the entity only once, if not exits
      */
-    private function createEntity(array $entity)
+    private function createEntity(array $entity): void
     {
         $entityNameCamelCase         =   \Zazalt\Strink\Strink::turn(key($entity))->snakeCaseToCamelCase(true);
         $fileTemplateContent         =   file_get_contents(dirname(__FILE__).'/Templates/Entity.php');
